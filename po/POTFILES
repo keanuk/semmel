@@ -1,0 +1,4 @@
+data/com.keanukerr.semmel.desktop.in
+data/com.keanukerr.semmel.appdata.xml.in
+data/com.keanukerr.semmel.gschema.xml
+src/window.ui

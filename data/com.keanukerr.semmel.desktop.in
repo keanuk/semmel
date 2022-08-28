@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=semmel
+Exec=semmel
+Icon=com.keanukerr.semmel
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
