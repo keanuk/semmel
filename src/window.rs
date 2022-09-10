@@ -1,6 +1,7 @@
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{gio, glib, CompositeTemplate};
+use gtk::{gio, glib, CompositeTemplate, ListView};
+use std::cell::RefCell;
 
 mod imp {
     use super::*;
@@ -12,7 +13,8 @@ mod imp {
         #[template_child]
         pub header_bar: TemplateChild<gtk::HeaderBar>,
         #[template_child]
-        pub label: TemplateChild<gtk::Label>,
+        pub tasks_list: TemplateChild<ListView>,
+        pub tasks: RefCell<Option<gio::ListStore>>,
     }
 
     #[glib::object_subclass]
@@ -38,8 +40,9 @@ mod imp {
 
 glib::wrapper! {
     pub struct SemmelWindow(ObjectSubclass<imp::SemmelWindow>)
-        @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow,
-        @implements gio::ActionGroup, gio::ActionMap;
+        @extends gtk::ApplicationWindow, gtk::Window, gtk::Widget,
+        @implements gio::ActionGroup, gio::ActionMap, gtk::Accessible, gtk::Buildable,
+                    gtk::ConstraintTarget, gtk::Native, gtk::Root, gtk::ShortcutManager;
 }
 
 impl SemmelWindow {
