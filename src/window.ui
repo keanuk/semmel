@@ -4,6 +4,7 @@
   <template class="SemmelWindow" parent="GtkApplicationWindow">
     <property name="default-width">500</property>
     <property name="default-height">700</property>
+    <property name="title" translatable="yes">Semmel</property>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="header_bar">
         <child type="end">
